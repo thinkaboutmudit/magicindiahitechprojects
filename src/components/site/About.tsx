@@ -1,61 +1,55 @@
 import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
-import { Home, Award, Heart, ArrowRight } from "lucide-react";
 
-const features = [
-  { Icon: Home, title: "Expertise in Real Estate Market", desc: "Deep knowledge of India's diverse real estate market — insights for buying, selling and investing." },
-  { Icon: Award, title: "Trusted Developer Since 2012", desc: "12+ years of experience, 1000+ property owners and 2500+ satisfied clients." },
-  { Icon: Heart, title: "Customer-Centric Approach", desc: "Personalized service and long-term relationships, guiding you at every step." },
+const points = [
+  { n: "01", title: "Expertise You Can Trust", desc: "12+ years navigating India's most dynamic property markets — from Dehradun's foothills to the Yamuna Expressway." },
+  { n: "02", title: "Thoughtful Recommendations", desc: "Every listing is curated. We surface properties that fit your timeline, budget, and long-term goals." },
+  { n: "03", title: "A Clear Path Forward", desc: "Site visits, paperwork, registration, possession — guided end-to-end by people who answer your calls." },
 ];
 
 export function About() {
   return (
-    <section className="py-24">
-      <div className="container-px mx-auto grid max-w-7xl gap-14 lg:grid-cols-2 lg:items-center">
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="relative h-[520px]"
-        >
-          <div className="absolute left-0 top-0 h-[70%] w-[72%] overflow-hidden rounded-3xl shadow-[var(--shadow-soft)]">
-            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=900&q=80" alt="Dehradun hills" className="h-full w-full object-cover" />
-          </div>
-          <div className="absolute bottom-0 right-0 h-[60%] w-[62%] overflow-hidden rounded-3xl border-4 border-background shadow-[var(--shadow-warm)]">
-            <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80" alt="Luxury interior" className="h-full w-full object-cover" />
-          </div>
-          <div className="absolute left-[58%] top-[58%] -translate-x-1/2 -translate-y-1/2 rounded-2xl bg-primary px-5 py-4 text-center text-primary-foreground shadow-[var(--shadow-warm)]">
-            <div className="font-serif text-2xl font-bold">12+</div>
-            <div className="text-xs uppercase tracking-widest">Trusted Since 2012</div>
-          </div>
-        </motion.div>
+    <section className="bg-background py-32">
+      <div className="container-px mx-auto max-w-7xl">
+        <div className="grid gap-16 lg:grid-cols-12 lg:gap-20">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.7 }}
+            className="lg:col-span-5"
+          >
+            <span className="eyebrow">About</span>
+            <h2 className="display-xl mt-6 text-foreground">
+              Real estate, <em className="font-serif italic text-muted-foreground/80">refined.</em>
+            </h2>
+            <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground">
+              Magic India Hitech Projects is a developer and advisor for people who want their next home — or next investment — to be a considered decision, not a rushed one.
+            </p>
+            <Link to="/about" className="btn-dark mt-10">Our Story <span aria-hidden>→</span></Link>
+          </motion.div>
 
-        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-          <span className="section-label">About Us</span>
-          <h2 className="font-serif text-4xl font-bold leading-tight text-foreground md:text-5xl">
-            Magic India Hitech<br /><span className="text-primary">Projects Pvt. Ltd.</span>
-          </h2>
-          <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-            A global real estate company offering comprehensive property solutions across residential, commercial, and industrial sectors. Magic India is a pioneer among professional real estate companies in India.
-          </p>
-
-          <div className="mt-8 space-y-4">
-            {features.map((f) => (
-              <div key={f.title} className="flex gap-4 rounded-2xl border border-border bg-card p-5 card-hover">
-                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary">
-                  <f.Icon className="h-6 w-6" />
-                </span>
-                <div className="min-w-0">
-                  <h4 className="font-serif text-lg font-semibold text-foreground">{f.title}</h4>
-                  <p className="mt-1 text-sm text-muted-foreground">{f.desc}</p>
-                </div>
-              </div>
-            ))}
+          <div className="lg:col-span-7">
+            <div className="divide-y divide-border">
+              {points.map((p, i) => (
+                <motion.div
+                  key={p.n}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.55, delay: i * 0.08 }}
+                  className="grid grid-cols-12 gap-6 py-10 first:pt-0"
+                >
+                  <span className="col-span-2 font-serif text-xl text-primary md:text-2xl">{p.n}</span>
+                  <div className="col-span-10">
+                    <h3 className="font-serif text-2xl text-foreground md:text-3xl">{p.title}</h3>
+                    <p className="mt-3 text-muted-foreground">{p.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
-
-          <Link to="/about" className="btn-saffron mt-8">Know More About Us <ArrowRight className="h-4 w-4" /></Link>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

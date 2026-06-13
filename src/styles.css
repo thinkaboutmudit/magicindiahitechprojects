@@ -145,6 +145,35 @@
   letter-spacing: -0.03em;
 }
 
+@utility btn-dark {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+  padding: 0.95rem 1.8rem; border-radius: 999px;
+  background: oklch(0.18 0.005 60); color: white;
+  font-weight: 500; font-size: 0.95rem;
+  transition: transform 0.25s ease, background 0.25s ease, gap 0.25s ease;
+  &:hover { background: oklch(0.28 0.01 60); gap: 0.9rem; transform: translateY(-1px); }
+}
+
+@utility eyebrow {
+  display: inline-flex; align-items: center; gap: 0.65rem;
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--muted-foreground);
+  &::before {
+    content: ""; display: inline-block; width: 1.75rem; height: 1px;
+    background: currentColor; opacity: 0.5;
+  }
+}
+
+@utility display-xl {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 6.5vw, 5.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  font-weight: 600;
+}
+
+
 @utility section-label {
   display: inline-block;
   font-size: 0.78rem;
