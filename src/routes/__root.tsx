@@ -11,7 +11,6 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { SmoothScroll } from "../components/site/SmoothScroll";
 
 function NotFoundComponent() {
   return (
@@ -82,9 +81,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "Magic India Hitech Projects Pvt. Ltd. — premium residential, commercial and farmland properties across Dehradun, Greater Noida and the Yamuna Expressway. Trusted since 2012." },
       { name: "author", content: "Magic India Hitech Projects Pvt. Ltd." },
       { property: "og:title", content: "Magic India Hitech Projects — Premium Real Estate in India" },
-      { property: "og:description", content: "Discover elegant homes, luxury suites and high-return investment plots across Dehradun, Greater Noida and Yamuna Expressway." },
+      { property: "og:description", content: "Magic India Hitech Projects Pvt. Ltd. — premium residential, commercial and farmland properties across Dehradun, Greater Noida and the Yamuna Expressway. Trusted since 2012." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Magic India Hitech Projects — Premium Real Estate in India" },
+      { name: "twitter:description", content: "Magic India Hitech Projects Pvt. Ltd. — premium residential, commercial and farmland properties across Dehradun, Greater Noida and the Yamuna Expressway. Trusted since 2012." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2b76d885-f107-429f-946a-a9ec759cca4d/id-preview-8c51e4cf--b122b4fe-812e-4bac-a2ab-149b4ac96865.lovable.app-1781368469735.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2b76d885-f107-429f-946a-a9ec759cca4d/id-preview-8c51e4cf--b122b4fe-812e-4bac-a2ab-149b4ac96865.lovable.app-1781368469735.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -118,7 +121,6 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <SmoothScroll />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>
