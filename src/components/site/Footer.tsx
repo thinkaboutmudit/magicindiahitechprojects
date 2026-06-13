@@ -1,65 +1,66 @@
 import { Link } from "@tanstack/react-router";
-import { Facebook, Instagram, Youtube, Linkedin, MapPin, Phone, Mail, Mountain } from "lucide-react";
+import { Facebook, Instagram, Youtube, Linkedin } from "lucide-react";
 import { PROJECTS } from "@/lib/site-data";
 
 export function Footer() {
   return (
-    <footer className="bg-secondary text-secondary-foreground">
-      <div className="container-px mx-auto max-w-7xl py-16">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="grid h-9 w-9 place-items-center rounded-full bg-primary/20">
-                <Mountain className="h-5 w-5 text-accent" />
-              </span>
-              <span className="font-serif text-xl font-bold">Magic <span className="text-accent">India</span></span>
+    <footer className="border-t border-border bg-background">
+      <div className="container-px mx-auto max-w-7xl py-20">
+        <div className="grid gap-16 lg:grid-cols-12">
+          <div className="lg:col-span-5">
+            <h2 className="display-xl text-foreground">
+              Find the property that <em className="font-serif italic text-muted-foreground/80">fits your future.</em>
+            </h2>
+            <Link to="/contact" className="btn-dark mt-10">Get in touch <span aria-hidden>→</span></Link>
+          </div>
+
+          <div className="grid gap-10 sm:grid-cols-3 lg:col-span-7">
+            <div>
+              <h4 className="text-xs uppercase tracking-[0.22em] text-muted-foreground">Company</h4>
+              <ul className="mt-5 space-y-3 text-sm text-foreground/85">
+                <li><Link to="/about" className="hover:text-primary">About</Link></li>
+                <li><Link to="/construction" className="hover:text-primary">Construction</Link></li>
+                <li><Link to="/legal" className="hover:text-primary">Legal</Link></li>
+                <li><Link to="/gallery" className="hover:text-primary">Gallery</Link></li>
+                <li><Link to="/contact" className="hover:text-primary">Contact</Link></li>
+              </ul>
             </div>
-            <p className="mt-4 text-sm leading-relaxed text-secondary-foreground/75">
-              Crafting elegant homes and high-return investments across Dehradun, Greater Noida and the Yamuna Expressway since 2012.
-            </p>
-            <div className="mt-5 flex gap-3">
-              {[Facebook, Instagram, Youtube, Linkedin].map((Icon, i) => (
-                <a key={i} href="#" aria-label="social" className="grid h-9 w-9 place-items-center rounded-full bg-white/10 transition hover:bg-primary">
-                  <Icon className="h-4 w-4" />
-                </a>
-              ))}
+            <div>
+              <h4 className="text-xs uppercase tracking-[0.22em] text-muted-foreground">Projects</h4>
+              <ul className="mt-5 space-y-3 text-sm text-foreground/85">
+                {PROJECTS.slice(0, 5).map((p) => (
+                  <li key={p.slug}>
+                    <Link to="/projects/$slug" params={{ slug: p.slug }} className="hover:text-primary">{p.name}</Link>
+                  </li>
+                ))}
+                <li><Link to="/projects" className="text-primary hover:underline">View all →</Link></li>
+              </ul>
             </div>
-          </div>
-
-          <div>
-            <h4 className="font-serif text-lg text-accent">Useful Links</h4>
-            <ul className="mt-4 space-y-2 text-sm text-secondary-foreground/75">
-              {[{to:"/",label:"Home"},{to:"/about",label:"About Us"},{to:"/legal",label:"Legal"},{to:"/contact",label:"FAQ"},{to:"/contact",label:"Contact Us"}].map((l, i) => (
-                <li key={i}><Link to={l.to} className="hover:text-accent">{l.label}</Link></li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-serif text-lg text-accent">Our Projects</h4>
-            <ul className="mt-4 space-y-2 text-sm text-secondary-foreground/75">
-              {PROJECTS.map((p) => (
-                <li key={p.slug}>
-                  <Link to="/projects/$slug" params={{ slug: p.slug }} className="hover:text-accent">{p.name}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-serif text-lg text-accent">Get In Touch</h4>
-            <ul className="mt-4 space-y-3 text-sm text-secondary-foreground/80">
-              <li className="flex gap-3"><MapPin className="h-4 w-4 shrink-0 text-accent mt-0.5" /> H-78, 1st Floor, Sector 63, Noida, UP - 201301</li>
-              <li className="flex gap-3"><Phone className="h-4 w-4 shrink-0 text-accent mt-0.5" /> +91 730 269 7516</li>
-              <li className="flex gap-3"><Mail className="h-4 w-4 shrink-0 text-accent mt-0.5" /> info@magicindia.in</li>
-            </ul>
+            <div>
+              <h4 className="text-xs uppercase tracking-[0.22em] text-muted-foreground">Contact</h4>
+              <ul className="mt-5 space-y-3 text-sm text-foreground/85">
+                <li>H-78, 1st Floor, Sector 63<br />Noida, UP – 201301</li>
+                <li><a href="tel:+917302697516" className="hover:text-primary">+91 730 269 7516</a></li>
+                <li><a href="mailto:info@magicindia.in" className="hover:text-primary">info@magicindia.in</a></li>
+              </ul>
+              <div className="mt-5 flex gap-3">
+                {[Facebook, Instagram, Youtube, Linkedin].map((Icon, i) => (
+                  <a key={i} href="#" aria-label="social" className="grid h-9 w-9 place-items-center rounded-full border border-border text-foreground/70 transition hover:border-foreground hover:text-foreground">
+                    <Icon className="h-4 w-4" />
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="border-t border-white/10">
-        <div className="container-px mx-auto flex max-w-7xl flex-col gap-3 py-5 text-xs text-secondary-foreground/60 sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2024–2026 Magic India Hitech Projects Private Limited. All rights reserved.</p>
-          <div className="flex gap-5"><a href="#" className="hover:text-accent">Terms</a><a href="#" className="hover:text-accent">Privacy</a><a href="#" className="hover:text-accent">Cookies</a></div>
+
+        <div className="mt-20 flex flex-col gap-3 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+          <p>© 2024–2026 Magic India Hitech Projects Pvt. Ltd.</p>
+          <div className="flex gap-5">
+            <a href="#" className="hover:text-foreground">Terms</a>
+            <a href="#" className="hover:text-foreground">Privacy</a>
+            <a href="#" className="hover:text-foreground">Cookies</a>
+          </div>
         </div>
       </div>
     </footer>

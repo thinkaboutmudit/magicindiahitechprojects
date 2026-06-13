@@ -16,31 +16,34 @@ const items = [
 
 export function Amenities() {
   return (
-    <section className="bg-card py-24">
+    <section className="bg-background py-32">
       <div className="container-px mx-auto max-w-7xl">
-        <div className="mx-auto max-w-3xl text-center">
-          <span className="section-label">Facilities</span>
-          <h2 className="font-serif text-4xl font-bold text-foreground md:text-5xl">Basic Amenities in Our Properties</h2>
-          <p className="mt-4 text-muted-foreground">Every Magic India address is built around comfort, convenience and connection.</p>
-        </div>
-
-        <div className="mt-12 -mx-4 overflow-x-auto px-4">
-          <div className="flex min-w-max gap-4 pb-4">
-            {items.map((it, i) => (
-              <motion.div
-                key={it.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.35, delay: i * 0.04 }}
-                className="flex w-36 flex-col items-center gap-3 rounded-2xl border border-border bg-background p-5 text-center card-hover"
-              >
-                <span className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-primary/15 to-accent/30 text-primary">
-                  <it.Icon className="h-6 w-6" />
-                </span>
-                <span className="text-sm font-medium text-foreground">{it.name}</span>
-              </motion.div>
-            ))}
+        <div className="grid gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-5">
+            <span className="eyebrow">Living</span>
+            <h2 className="display-xl mt-6 text-foreground">
+              Built around <em className="font-serif italic text-muted-foreground/80">comfort.</em>
+            </h2>
+            <p className="mt-6 max-w-sm text-muted-foreground">
+              Every Magic India address is designed with the small things that make a home feel like one.
+            </p>
+          </div>
+          <div className="lg:col-span-7">
+            <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-3">
+              {items.map((it, i) => (
+                <motion.div
+                  key={it.name}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45, delay: i * 0.04 }}
+                  className="flex items-center gap-3 border-b border-border pb-4"
+                >
+                  <it.Icon className="h-5 w-5 text-primary" />
+                  <span className="text-sm text-foreground">{it.name}</span>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

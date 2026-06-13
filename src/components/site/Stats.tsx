@@ -9,7 +9,7 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 
   useEffect(() => {
     if (!inView) return;
-    const duration = 1800;
+    const duration = 2000;
     const start = performance.now();
     let raf = 0;
     const tick = (t: number) => {
@@ -27,22 +27,22 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 
 export function Stats() {
   return (
-    <section className="relative bg-gradient-to-r from-[oklch(0.96_0.03_85)] via-[oklch(0.94_0.05_80)] to-[oklch(0.96_0.03_85)] py-14">
+    <section className="border-y border-border bg-background py-20">
       <div className="container-px mx-auto max-w-7xl">
-        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
+        <div className="grid grid-cols-2 gap-y-12 lg:grid-cols-4">
           {STATS.map((s, i) => (
             <motion.div
               key={s.label}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="rounded-2xl border border-accent/30 bg-background/60 p-6 text-center backdrop-blur card-hover"
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="border-r border-border px-6 last:border-r-0 lg:px-10"
             >
-              <div className="font-serif text-4xl font-bold text-secondary sm:text-5xl">
+              <div className="font-serif text-5xl font-semibold tracking-tight text-foreground md:text-6xl">
                 <Counter value={s.value} suffix={s.suffix} />
               </div>
-              <div className="mt-2 text-sm font-medium text-muted-foreground">{s.label}</div>
+              <div className="mt-3 text-xs uppercase tracking-[0.2em] text-muted-foreground">{s.label}</div>
             </motion.div>
           ))}
         </div>
