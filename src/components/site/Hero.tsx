@@ -31,18 +31,18 @@ export function Hero() {
         scrollTrigger: {
           trigger: ref.current,
           start: "top top",
-          end: "+=120%",
-          scrub: 1,
+          end: "+=160%",
+          scrub: 0.6,
           pin: true,
           anticipatePin: 1,
         },
       });
 
-      tl.to(sky, { yPercent: -8, ease: "none" }, 0)
-        .to(mountains, { yPercent: -10, ease: "none" }, 0)
-        .to(meadows, { yPercent: -15, ease: "none" }, 0)
-        .to(villa, { yPercent: 0, scale: 1, ease: "none" }, 0)
-        .to(headline, { yPercent: -25, opacity: 0.0, ease: "none" }, 0.15);
+      tl.to(sky, { yPercent: -6, ease: "none" }, 0)
+        .to(mountains, { yPercent: -14, ease: "none" }, 0)
+        .to(meadows, { yPercent: -22, ease: "none" }, 0)
+        .to(villa, { yPercent: 0, scale: 1, ease: "power2.out" }, 0)
+        .to(headline, { yPercent: -30, opacity: 0, ease: "power1.in" }, 0.05);
     }, ref);
     return () => ctx.revert();
   }, []);
@@ -85,11 +85,10 @@ export function Hero() {
             Find Your Dream Property
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-base text-foreground/75 sm:text-lg">
-            From the green foothills of Dehradun to the rising skylines of Greater Noida —
-            discover homes crafted for the way you want to live.
+            Expert guidance. Thoughtful recommendations. Find the property that fits your future.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
-            <a href="/projects" className="btn-saffron">Explore Properties</a>
+            <a href="/projects" className="btn-dark">Find Properties <span aria-hidden>→</span></a>
             <a href="#video" className="btn-ghost-dark"><Play className="h-4 w-4" /> Watch Our Story</a>
           </div>
         </div>
