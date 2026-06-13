@@ -25,9 +25,9 @@ function Index() {
   return (
     <SiteLayout transparentHeaderOffset>
       <Hero />
-      <HeroVideo />
       <Stats />
       <About />
+      <HeroVideo />
       <ProjectsSection />
       <Featured />
       <Amenities />
