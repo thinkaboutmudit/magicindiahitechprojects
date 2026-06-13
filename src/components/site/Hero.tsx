@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Facebook, Instagram, ChevronDown, Play } from "lucide-react";
+import { Facebook, Instagram, ChevronDown } from "lucide-react";
 import skyImg from "@/assets/hero/sky.jpg";
 import mountainsImg from "@/assets/hero/mountains.png";
 import meadowsImg from "@/assets/hero/meadows.png";
