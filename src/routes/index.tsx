@@ -25,12 +25,12 @@ function Index() {
   return (
     <SiteLayout transparentHeaderOffset>
       <Hero />
+      <HeroVideo />
       <Stats />
       <About />
       <ProjectsSection />
       <Featured />
       <Amenities />
-      <VideoCTA />
     </SiteLayout>
   );
 }
