@@ -88,8 +88,7 @@ export function Hero() {
             Expert guidance. Thoughtful recommendations. Find the property that fits your future.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
-            <a href="/projects" className="btn-dark">Find Properties <span aria-hidden>→</span></a>
-            <a href="#video" className="btn-ghost-dark"><Play className="h-4 w-4" /> Watch Our Story</a>
+            <a href="/contact" className="btn-dark">Get in Touch <span aria-hidden>→</span></a>
           </div>
         </div>
       </div>
