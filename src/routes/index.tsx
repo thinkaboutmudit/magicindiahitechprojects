@@ -7,7 +7,7 @@ import { About } from "@/components/site/About";
 import { ProjectsSection } from "@/components/site/ProjectsSection";
 import { Featured } from "@/components/site/Featured";
 import { Amenities } from "@/components/site/Amenities";
-import { VideoCTA } from "@/components/site/VideoCTA";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
