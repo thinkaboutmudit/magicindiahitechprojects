@@ -1,12 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Hero } from "@/components/site/Hero";
+import { HeroVideo } from "@/components/site/HeroVideo";
 import { Stats } from "@/components/site/Stats";
 import { About } from "@/components/site/About";
 import { ProjectsSection } from "@/components/site/ProjectsSection";
 import { Featured } from "@/components/site/Featured";
 import { Amenities } from "@/components/site/Amenities";
-import { VideoCTA } from "@/components/site/VideoCTA";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -24,12 +25,12 @@ function Index() {
   return (
     <SiteLayout transparentHeaderOffset>
       <Hero />
+      <HeroVideo />
       <Stats />
       <About />
       <ProjectsSection />
       <Featured />
       <Amenities />
-      <VideoCTA />
     </SiteLayout>
   );
 }
