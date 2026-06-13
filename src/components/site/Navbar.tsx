@@ -87,7 +87,7 @@ export function Navbar() {
         </nav>
 
         <div className="hidden lg:block">
-          <Link to="/contact" className="btn-saffron">Book Site Visit</Link>
+          <Link to="/contact" className={transparent ? "btn-dark" : "btn-dark"}>Get in touch</Link>
         </div>
 
         <button
@@ -111,7 +111,7 @@ export function Navbar() {
                 {l.label}
               </Link>
             ))}
-            <Link to="/contact" className="btn-saffron mt-2 self-start">Book Site Visit</Link>
+            <Link to="/contact" className="btn-dark mt-2 self-start">Get in touch</Link>
           </div>
         </div>
       )}
