@@ -87,9 +87,6 @@ export function Hero() {
           <p className="mx-auto mt-5 max-w-xl text-base text-foreground/75 sm:text-lg">
             Expert guidance. Thoughtful recommendations. Find the property that fits your future.
           </p>
-          <div className="mt-7 flex flex-wrap justify-center gap-3">
-            <a href="/contact" className="btn-dark">Get in Touch <span aria-hidden>→</span></a>
-          </div>
         </div>
       </div>
 
