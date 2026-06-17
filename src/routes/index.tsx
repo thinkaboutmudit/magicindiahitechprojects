@@ -5,7 +5,6 @@ import { HeroVideo } from "@/components/site/HeroVideo";
 import { Stats } from "@/components/site/Stats";
 import { About } from "@/components/site/About";
 import { ProjectsSection } from "@/components/site/ProjectsSection";
-import { Featured } from "@/components/site/Featured";
 import { Amenities } from "@/components/site/Amenities";
 
 
@@ -29,7 +28,6 @@ function Index() {
       <About />
       <HeroVideo />
       <ProjectsSection />
-      <Featured />
       <Amenities />
     </SiteLayout>
   );

@@ -138,11 +138,14 @@
 
 @utility hero-headline {
   font-size: clamp(2.75rem, 10vw, 8.5rem);
-  background: linear-gradient(180deg, oklch(0.22 0.01 60) 0%, oklch(0.22 0.01 60) 55%, color-mix(in oklab, var(--saffron) 70%, white) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: #F8E7A1;
   letter-spacing: -0.03em;
+  text-shadow: 0 3px 15px rgba(0,0,0,0.6);
+}
+
+@utility hero-copy-text {
+  color: #FFFFFF;
+  text-shadow: 0 3px 15px rgba(0,0,0,0.6);
 }
 
 @utility btn-dark {

@@ -4,19 +4,19 @@ import { PROJECTS } from "@/lib/site-data";
 
 export function ProjectsSection() {
   return (
-    <section className="bg-background py-32">
+    <section className="bg-background py-20">
       <div className="container-px mx-auto max-w-7xl">
-        <div className="flex flex-wrap items-end justify-between gap-8">
+        <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-2xl">
             <span className="eyebrow">Portfolio</span>
             <h2 className="display-xl mt-6 text-foreground">
-              Places worth <em className="font-serif italic text-muted-foreground/80">moving for.</em>
+              Places Worth <em className="font-serif italic text-muted-foreground/80">Moving For.</em>
             </h2>
           </div>
           <Link to="/projects" className="btn-dark">All Projects <span aria-hidden>→</span></Link>
         </div>
 
-        <div className="mt-20 grid gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
           {PROJECTS.map((p, i) => (
             <motion.article
               key={p.slug}

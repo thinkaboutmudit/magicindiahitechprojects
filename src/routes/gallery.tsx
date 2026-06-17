@@ -3,35 +3,47 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { useState } from "react";
 import { Upload, X, ImagePlus } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import gallery1 from "@/assets/gallery/gallery-1.jpeg";
+import gallery2 from "@/assets/gallery/gallery-2.jpeg";
+import gallery3 from "@/assets/gallery/gallery-3.jpeg";
+import gallery4 from "@/assets/gallery/gallery-4.jpeg";
+import gallery5 from "@/assets/gallery/gallery-5.jpeg";
+import gallery6 from "@/assets/gallery/gallery-6.jpeg";
+import gallery7 from "@/assets/gallery/gallery-7.jpeg";
+import gallery8 from "@/assets/gallery/gallery-8.jpeg";
+import gallery9 from "@/assets/gallery/gallery-9.jpeg";
+import gallery10 from "@/assets/gallery/gallery-10.jpeg";
+import gallery11 from "@/assets/gallery/gallery-11.jpeg";
+import gallery12 from "@/assets/gallery/gallery-12.jpeg";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
       { title: "Gallery — Magic India Hitech Projects" },
-      { name: "description", content: "A visual tour of Magic India's apartments, farmhouses, plots and Dehradun developments." },
+      { name: "description", content: "A visual tour of Magic India's projects." },
     ],
   }),
   component: GalleryPage,
 });
 
-type Img = { src: string; cat: "Apartments" | "Farmhouses" | "Plots" | "Dehradun Projects"; h: number };
+type Img = { src: string; cat: "Aero Classic City" | "Aero Dream City" | "Hillock Meadows" | "Magic Meadows"; h: number };
 
 const IMAGES: Img[] = [
-  { src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80", cat: "Apartments", h: 380 },
-  { src: "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=900&q=80", cat: "Farmhouses", h: 520 },
-  { src: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=900&q=80", cat: "Dehradun Projects", h: 420 },
-  { src: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=900&q=80", cat: "Farmhouses", h: 360 },
-  { src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80", cat: "Apartments", h: 480 },
-  { src: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=900&q=80", cat: "Plots", h: 360 },
-  { src: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=900&q=80", cat: "Apartments", h: 440 },
-  { src: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=80", cat: "Plots", h: 380 },
-  { src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=900&q=80", cat: "Dehradun Projects", h: 460 },
-  { src: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80", cat: "Dehradun Projects", h: 360 },
-  { src: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=900&q=80", cat: "Apartments", h: 500 },
-  { src: "https://images.unsplash.com/photo-1502134249126-9f3755a50d78?auto=format&fit=crop&w=900&q=80", cat: "Farmhouses", h: 380 },
+  { src: gallery1, cat: "Aero Classic City", h: 380 },
+  { src: gallery2, cat: "Aero Dream City", h: 520 },
+  { src: gallery3, cat: "Hillock Meadows", h: 420 },
+  { src: gallery4, cat: "Aero Dream City", h: 360 },
+  { src: gallery5, cat: "Aero Classic City", h: 480 },
+  { src: gallery6, cat: "Magic Meadows", h: 360 },
+  { src: gallery7, cat: "Aero Classic City", h: 440 },
+  { src: gallery8, cat: "Magic Meadows", h: 380 },
+  { src: gallery9, cat: "Hillock Meadows", h: 460 },
+  { src: gallery10, cat: "Hillock Meadows", h: 360 },
+  { src: gallery11, cat: "Aero Classic City", h: 500 },
+  { src: gallery12, cat: "Aero Dream City", h: 380 },
 ];
 
-const FILTERS = ["All", "Apartments", "Farmhouses", "Plots", "Dehradun Projects"] as const;
+const FILTERS = ["All", "Aero Classic City", "Aero Dream City", "Hillock Meadows", "Magic Meadows"] as const;
 
 function GalleryPage() {
   const [filter, setFilter] = useState<(typeof FILTERS)[number]>("All");

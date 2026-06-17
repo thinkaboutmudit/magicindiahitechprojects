@@ -8,11 +8,11 @@ export function VideoCTA() {
           <div>
             <span className="eyebrow">Signature</span>
             <h2 className="display-xl mt-6 text-foreground">
-              Magic Luxury Suites, <em className="font-serif italic text-muted-foreground/80">Dehradun.</em>
+              The Magic Meadows, <em className="font-serif italic text-muted-foreground/80">Dehradun.</em>
             </h2>
           </div>
           <p className="text-muted-foreground md:pb-3">
-            A premium 3BHK address nestled in the tranquil Malsi area — a serene retreat with modern comforts, spacious living, and scenic Doon-valley surroundings.
+            Picturesque meadows with curated plots and ready cottages — your private slice of the Doon valley with serene surroundings and scenic beauty.
           </p>
         </div>
 
@@ -21,7 +21,7 @@ export function VideoCTA() {
             <iframe
               className="h-full w-full"
               src="https://www.youtube.com/embed/_sI_Ps7JSEk"
-              title="Magic Luxury Suites Dehradun"
+              title="The Magic Meadows Dehradun"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />

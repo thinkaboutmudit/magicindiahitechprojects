@@ -11,7 +11,7 @@ export function Featured() {
       <div className="container-px mx-auto max-w-7xl">
         <div className="max-w-2xl">
           <span className="eyebrow">Featured</span>
-          <h2 className="display-xl mt-6 text-foreground">Hand-picked, this season.</h2>
+          <h2 className="display-xl mt-6 text-foreground">Hand-Picked, This Season.</h2>
         </div>
 
         <div className="mt-20 space-y-2">

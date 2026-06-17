@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Menu, X, Mountain, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { NAV_LINKS, PROJECTS } from "@/lib/site-data";
+import logoImg from "@/assets/projects/logo.png";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -28,13 +29,8 @@ export function Navbar() {
       }`}
     >
       <div className="container-px mx-auto flex h-18 max-w-7xl items-center justify-between py-4">
-        <Link to="/" className="flex items-center gap-2">
-          <span className={`grid h-9 w-9 place-items-center rounded-full ${transparent ? "bg-white/15 backdrop-blur" : "bg-primary/10"}`}>
-            <Mountain className={`h-5 w-5 ${transparent ? "text-white" : "text-primary"}`} />
-          </span>
-          <span className={`font-serif text-xl font-bold tracking-tight ${transparent ? "text-white" : "text-foreground"}`}>
-            Magic <span className="text-primary">India</span>
-          </span>
+        <Link to="/" className="flex items-center gap-3">
+          <img src={logoImg} alt="Magic India logo" className="h-10 w-auto" />
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">

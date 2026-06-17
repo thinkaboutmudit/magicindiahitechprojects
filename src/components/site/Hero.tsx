@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Facebook, Instagram, ChevronDown } from "lucide-react";
+import { Facebook, Instagram, ChevronDown, MessageCircle } from "lucide-react";
 import skyImg from "@/assets/hero/sky.jpg";
 import mountainsImg from "@/assets/hero/mountains.png";
 import meadowsImg from "@/assets/hero/meadows.png";
@@ -79,12 +79,12 @@ export function Hero() {
       <div className="hero-copy relative z-10 flex h-full flex-col items-center justify-start pt-28 text-center md:pt-32">
         <div className="container-px mx-auto max-w-6xl">
           <span className="inline-block rounded-full bg-white/40 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-foreground backdrop-blur">
-            Premium Real Estate · India
+            MAGIC INDIA HITECH PROJECTS
           </span>
           <h1 className="hero-headline mt-5 font-serif font-bold leading-[0.95] tracking-tight">
             Find Your Dream Property
           </h1>
-          <p className="mx-auto mt-5 max-w-xl text-base text-foreground/75 sm:text-lg">
+          <p className="mx-auto mt-5 max-w-xl text-base hero-copy-text sm:text-lg">
             Expert guidance. Thoughtful recommendations. Find the property that fits your future.
           </p>
         </div>
@@ -92,11 +92,15 @@ export function Hero() {
 
       {/* Floating socials */}
       <div className="absolute left-5 top-1/2 z-10 hidden -translate-y-1/2 flex-col gap-3 md:flex">
-        {[Facebook, Instagram].map((Icon, i) => (
-          <a key={i} href="#" className="grid h-10 w-10 place-items-center rounded-full bg-white/50 text-foreground backdrop-blur transition hover:bg-primary hover:text-primary-foreground">
-            <Icon className="h-4 w-4" />
-          </a>
-        ))}
+        <a href="#" className="grid h-10 w-10 place-items-center rounded-full text-white transition shadow-lg" style={{ backgroundColor: "#1877F2" }}>
+          <Facebook className="h-4 w-4" />
+        </a>
+        <a href="#" className="grid h-10 w-10 place-items-center rounded-full text-white transition shadow-lg" style={{ background: "linear-gradient(135deg, #FEDA75 0%, #FA7E1E 45%, #D62976 60%, #962FBF 75%, #4F5BD5 100%)" }}>
+          <Instagram className="h-4 w-4" />
+        </a>
+        <a href="#" className="grid h-10 w-10 place-items-center rounded-full text-white transition shadow-lg" style={{ backgroundColor: "#25D366" }}>
+          <MessageCircle className="h-4 w-4" />
+        </a>
       </div>
 
       {/* Scroll indicator */}

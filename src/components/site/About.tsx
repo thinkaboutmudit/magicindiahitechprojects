@@ -9,9 +9,9 @@ const points = [
 
 export function About() {
   return (
-    <section className="bg-background py-32">
+    <section className="bg-background py-20">
       <div className="container-px mx-auto max-w-7xl">
-        <div className="grid gap-16 lg:grid-cols-12 lg:gap-20">
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -21,7 +21,7 @@ export function About() {
           >
             <span className="eyebrow">About</span>
             <h2 className="display-xl mt-6 text-foreground">
-              Real estate, <em className="font-serif italic text-muted-foreground/80">refined.</em>
+              Real Estate, <em className="font-serif italic text-muted-foreground/80">Refined.</em>
             </h2>
             <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground">
               Magic India Hitech Projects is a developer and advisor for people who want their next home — or next investment — to be a considered decision, not a rushed one.

@@ -13,7 +13,6 @@ import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as LegalRouteImport } from './routes/legal'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as ConstructionRouteImport } from './routes/construction'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
@@ -37,11 +36,6 @@ const GalleryRoute = GalleryRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ConstructionRoute = ConstructionRouteImport.update({
-  id: '/construction',
-  path: '/construction',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -68,7 +62,6 @@ const ProjectsSlugRoute = ProjectsSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/construction': typeof ConstructionRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/legal': typeof LegalRoute
@@ -79,7 +72,6 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/construction': typeof ConstructionRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/legal': typeof LegalRoute
@@ -90,7 +82,6 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
-  '/construction': typeof ConstructionRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/legal': typeof LegalRoute
@@ -103,7 +94,6 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
-    | '/construction'
     | '/contact'
     | '/gallery'
     | '/legal'
@@ -114,7 +104,6 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
-    | '/construction'
     | '/contact'
     | '/gallery'
     | '/legal'
@@ -124,7 +113,6 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
-    | '/construction'
     | '/contact'
     | '/gallery'
     | '/legal'
@@ -136,7 +124,6 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
-  ConstructionRoute: typeof ConstructionRoute
   ContactRoute: typeof ContactRoute
   GalleryRoute: typeof GalleryRoute
   LegalRoute: typeof LegalRoute
@@ -171,13 +158,6 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/construction': {
-      id: '/construction'
-      path: '/construction'
-      fullPath: '/construction'
-      preLoaderRoute: typeof ConstructionRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -228,7 +208,6 @@ const ProjectsRouteWithChildren = ProjectsRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
-  ConstructionRoute: ConstructionRoute,
   ContactRoute: ContactRoute,
   GalleryRoute: GalleryRoute,
   LegalRoute: LegalRoute,
@@ -237,3 +216,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

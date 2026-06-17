@@ -3,6 +3,7 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { PROJECTS } from "@/lib/site-data";
 import { MapPin, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import projectsIndexImg from "@/assets/projects-index.svg";
 
 export const Route = createFileRoute("/projects/")({
   head: () => ({
@@ -20,7 +21,7 @@ function ProjectsIndex() {
   return (
     <SiteLayout transparentHeaderOffset>
       <section className="relative h-[44vh] min-h-[320px] overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=80" alt="" className="absolute inset-0 h-full w-full object-cover" />
+        <img src={projectsIndexImg} alt="" className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70" />
         <div className="container-px relative z-10 mx-auto flex h-full max-w-7xl items-end pb-14">
           <div>

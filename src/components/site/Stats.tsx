@@ -27,7 +27,7 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 
 export function Stats() {
   return (
-    <section className="border-y border-border bg-background py-20">
+    <section className="border-y border-border bg-background py-12">
       <div className="container-px mx-auto max-w-7xl">
         <div className="grid grid-cols-2 gap-y-12 lg:grid-cols-4">
           {STATS.map((s, i) => (

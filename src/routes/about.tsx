@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Award, Heart, Home, Users, Target, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
+import aboutHeroImg from "@/assets/pages/about-hero.jpg";
+import aboutContentImg from "@/assets/pages/about-content.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -17,7 +19,7 @@ export const Route = createFileRoute("/about")({
 
 function PageHero({ title, kicker, sub, image }: { title: string; kicker: string; sub: string; image: string }) {
   return (
-    <section className="relative h-[52vh] min-h-[360px] w-full overflow-hidden">
+    <section className="relative h-[52vh] min-h-[550px] w-full overflow-hidden">
       <img src={image} alt="" className="absolute inset-0 h-full w-full object-cover" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/60" />
       <div className="container-px relative z-10 mx-auto flex h-full max-w-7xl items-end pb-14">
@@ -42,10 +44,10 @@ function AboutPage() {
   ];
   return (
     <SiteLayout transparentHeaderOffset>
-      <PageHero kicker="About Us" title="Building Homes. Building Trust." sub="A pioneer among professional real estate companies in India, delivering residential, commercial and industrial property solutions since 2012." image="https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=2000&q=80" />
+      <PageHero kicker="About Us" title="Building Homes. Building Trust." sub="A pioneer among professional real estate companies in India, delivering residential, commercial and industrial property solutions since 2012." image={aboutHeroImg} />
       <section className="py-20">
         <div className="container-px mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:items-center">
-          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1200&q=80" alt="" className="h-[480px] w-full rounded-3xl object-cover shadow-[var(--shadow-soft)]" />
+          <img src={aboutContentImg} alt="" className="h-[480px] w-full rounded-3xl object-cover shadow-[var(--shadow-soft)]" />
           <div>
             <span className="section-label">Our Story</span>
             <h2 className="font-serif text-4xl font-bold md:text-5xl">A decade of crafting premium addresses</h2>

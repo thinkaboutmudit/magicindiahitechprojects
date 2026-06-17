@@ -9,7 +9,7 @@ export function Footer() {
         <div className="grid gap-16 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <h2 className="display-xl text-foreground">
-              Find the property that <em className="font-serif italic text-muted-foreground/80">fits your future.</em>
+              Find your <em className="font-serif italic text-muted-foreground/80">Property</em>
             </h2>
             <Link to="/contact" className="btn-dark mt-10">Get in touch <span aria-hidden>→</span></Link>
           </div>
@@ -19,7 +19,6 @@ export function Footer() {
               <h4 className="text-xs uppercase tracking-[0.22em] text-muted-foreground">Company</h4>
               <ul className="mt-5 space-y-3 text-sm text-foreground/85">
                 <li><Link to="/about" className="hover:text-primary">About</Link></li>
-                <li><Link to="/construction" className="hover:text-primary">Construction</Link></li>
                 <li><Link to="/legal" className="hover:text-primary">Legal</Link></li>
                 <li><Link to="/gallery" className="hover:text-primary">Gallery</Link></li>
                 <li><Link to="/contact" className="hover:text-primary">Contact</Link></li>
@@ -40,8 +39,8 @@ export function Footer() {
               <h4 className="text-xs uppercase tracking-[0.22em] text-muted-foreground">Contact</h4>
               <ul className="mt-5 space-y-3 text-sm text-foreground/85">
                 <li>H-78, 1st Floor, Sector 63<br />Noida, UP – 201301</li>
-                <li><a href="tel:+917302697516" className="hover:text-primary">+91 730 269 7516</a></li>
-                <li><a href="mailto:info@magicindia.in" className="hover:text-primary">info@magicindia.in</a></li>
+                <li><a href="tel:+91-8010095135" className="hover:text-primary">+91-8010095135</a></li>
+                <li><a href="mailto:info@magicindiahitechprojects.com" className="hover:text-primary">info@magicindiahitechprojects.com</a></li>
               </ul>
               <div className="mt-5 flex gap-3">
                 {[Facebook, Instagram, Youtube, Linkedin].map((Icon, i) => (

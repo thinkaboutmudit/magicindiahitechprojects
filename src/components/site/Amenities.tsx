@@ -16,7 +16,7 @@ const items = [
 
 export function Amenities() {
   return (
-    <section className="bg-background py-32">
+    <section className="bg-background py-20">
       <div className="container-px mx-auto max-w-7xl">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">

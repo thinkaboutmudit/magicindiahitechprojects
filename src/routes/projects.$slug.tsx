@@ -1,7 +1,8 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { useState } from "react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PROJECTS } from "@/lib/site-data";
-import { MapPin, Maximize, IndianRupee, ArrowLeft, CheckCircle2 } from "lucide-react";
+import { MapPin, Maximize, IndianRupee, ArrowLeft, CheckCircle2, ChevronLeft, ChevronRight, X } from "lucide-react";
 
 export const Route = createFileRoute("/projects/$slug")({
   loader: ({ params }) => {
@@ -42,6 +43,8 @@ export const Route = createFileRoute("/projects/$slug")({
 
 function ProjectDetail() {
   const { project } = Route.useLoaderData();
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const gallery = project.gallery ?? [];
   const highlights = [
     "Premium location with strong appreciation",
     "RERA-aligned planning & approvals",
@@ -50,6 +53,20 @@ function ProjectDetail() {
     "24x7 security and power backup",
     "Easy financing & flexible plans",
   ];
+
+  const openImage = (index: number) => setActiveIndex(index);
+  const closeGallery = () => setActiveIndex(null);
+  const showPrevious = () =>
+    setActiveIndex((current) => {
+      if (current === null || gallery.length === 0) return null;
+      return (current - 1 + gallery.length) % gallery.length;
+    });
+  const showNext = () =>
+    setActiveIndex((current) => {
+      if (current === null || gallery.length === 0) return null;
+      return (current + 1) % gallery.length;
+    });
+
   return (
     <SiteLayout transparentHeaderOffset>
       <section className="relative h-[60vh] min-h-[420px] overflow-hidden">
@@ -93,6 +110,44 @@ function ProjectDetail() {
           </aside>
         </div>
       </section>
+
+      {gallery.length > 0 ? (
+        <section className="py-16 bg-muted/40">
+          <div className="container-px mx-auto max-w-7xl">
+            <h2 className="font-serif text-3xl font-bold">Project Gallery</h2>
+            <p className="mt-3 text-muted-foreground">Click any image to view it larger with next/prev controls.</p>
+            <div className="mt-8 overflow-x-auto pb-4">
+            <div className="grid auto-cols-[minmax(280px,1fr)] grid-flow-col gap-4">
+              {gallery.map((src, index) => (
+                <button key={index} type="button" onClick={() => openImage(index)} className="group min-w-[280px] overflow-hidden rounded-3xl border border-border bg-background p-0 shadow-[var(--shadow-soft)] transition hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-primary">
+                  <img src={src} alt={`${project.name} gallery ${index + 1}`} className="h-60 w-full object-cover transition duration-300 group-hover:scale-105" />
+                </button>
+              ))}
+            </div>
+          </div>
+          </div>
+        </section>
+      ) : null}
+
+      {activeIndex !== null ? (
+        <div className="fixed inset-0 z-50 grid place-items-center bg-black/90 p-4">
+          <div className="relative inline-flex max-h-[95vh] max-w-[95vw] overflow-hidden rounded-3xl bg-black">
+            <button type="button" onClick={closeGallery} className="absolute right-4 top-4 z-20 rounded-full bg-white/10 p-3 text-white transition hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white">
+              <X className="h-5 w-5" />
+              <span className="sr-only">Close</span>
+            </button>
+            <button type="button" onClick={showPrevious} className="absolute left-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white">
+              <ChevronLeft className="h-6 w-6" />
+              <span className="sr-only">Previous</span>
+            </button>
+            <img src={project.gallery[activeIndex]} alt={`${project.name} gallery ${activeIndex + 1}`} className="max-h-[95vh] max-w-[95vw] object-contain" />
+            <button type="button" onClick={showNext} className="absolute right-4 top-1/2 z-20 -translate-y-1/2 rounded-full bg-white/10 p-3 text-white transition hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white">
+              <ChevronRight className="h-6 w-6" />
+              <span className="sr-only">Next</span>
+            </button>
+          </div>
+        </div>
+      ) : null}
     </SiteLayout>
   );
 }

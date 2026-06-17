@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { PageHero } from "./about";
 import { FileCheck2, ScrollText, ShieldCheck, Scale } from "lucide-react";
+import legalHeroImg from "@/assets/pages/legal-hero.png";
 
 export const Route = createFileRoute("/legal")({
   head: () => ({
@@ -22,7 +23,7 @@ function LegalPage() {
   ];
   return (
     <SiteLayout transparentHeaderOffset>
-      <PageHero kicker="Legal" title="Total clarity. Total confidence." sub="Buying property should be exciting — never anxious. Here's how we protect every customer." image="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=2000&q=80" />
+      <PageHero kicker="Legal" title="Total clarity. Total confidence." sub="Buying property should be exciting — never anxious. Here's how we protect every customer." image={legalHeroImg} />
       <section className="py-20">
         <div className="container-px mx-auto max-w-5xl">
           <div className="grid gap-6 sm:grid-cols-2">
@@ -37,7 +38,7 @@ function LegalPage() {
           <div className="mt-12 rounded-3xl bg-secondary p-8 text-secondary-foreground md:p-10">
             <h3 className="font-serif text-2xl">Need project documents?</h3>
             <p className="mt-2 text-secondary-foreground/80">Reach out for RERA certificates, approved layout plans, title reports and brochure PDFs for any of our active projects.</p>
-            <a href="mailto:info@magicindia.in" className="btn-gold mt-6">Request Documents</a>
+            <a href="mailto:info@magicindiahitechprojects.com" className="btn-gold mt-6">Request Documents</a>
           </div>
         </div>
       </section>
