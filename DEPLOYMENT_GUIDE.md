@@ -44,6 +44,7 @@ npm run build
 npm install -g pm2
 pm2 start "npm start" --name "magic-india-site"
 ```
+```
 
 ## If Stuck With Traditional Hosting
 
@@ -112,6 +113,27 @@ npm start
 Notes:
 - If you prefer Hostinger's app manager to run the process, set the start command in the app settings to `npm start`.
 - If assets still 404, confirm `dist/client/assets` exists on the server and that `server.node.js` is in the project root.
+
+### Hostinger (Static SPA on shared hosting)
+
+If you prefer to deploy a static single-page app (no Node.js) to Hostinger's shared hosting, do this:
+
+1. On your dev machine run:
+
+```bash
+npm run build:spa
+# This creates `dist_static/` containing `index.html` and `assets/`
+```
+
+2. Upload the contents of `dist_static/` to your Hostinger site's public folder (usually `public_html` or the folder configured for your domain).
+
+3. Ensure `index.html` is at the site root and assets are in `assets/` next to it.
+
+4. Hostinger will serve the static SPA. For SPA routing to work, add an `.htaccess` in the root with a fallback to `index.html` (we already added one earlier).
+
+Notes:
+- This avoids Node.js and SSR entirely — the client bundle handles routing.
+- Rebuild and re-upload `dist_static/` on each change.
 
 
 1. **Best**: Use **Vercel** (1-click deploy from GitHub)
