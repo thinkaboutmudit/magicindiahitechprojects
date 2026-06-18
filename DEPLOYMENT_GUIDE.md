@@ -87,6 +87,32 @@ netlify deploy --prod --dir=dist/client
 4. **Missing Node.js**: If using traditional hosting, this won't work. Switch to Node-capable hosting.
 
 ## Recommended Quick Fix
+### Hostinger (Node.js)
+
+If you have Hostinger and can publish Node.js apps, follow these steps.
+
+1. Open hPanel → Hosting → Node.js Apps → Create Application.
+   - Select Node.js version 18+.
+   - Set the application root to your project folder (where `package.json` is).
+   - For the start command, use: `npm start` (we added a `start` script that runs `server.node.js`).
+
+2. Deploy / upload your repo to the server (via Git or SFTP). If using SFTP, upload all files including `dist/`.
+
+3. SSH into the app container (Hostinger provides a terminal) or use the "Terminal" in hPanel and run:
+
+```bash
+cd /path/to/your/app
+npm install --production --no-audit --no-fund
+npm run build    # only if you didn't upload `dist/`
+npm start
+```
+
+4. Ensure the app is running and mapped to your domain in hPanel. Hostinger will provide a public URL — the app must read `process.env.PORT`, which the provided `server.node.js` already does.
+
+Notes:
+- If you prefer Hostinger's app manager to run the process, set the start command in the app settings to `npm start`.
+- If assets still 404, confirm `dist/client/assets` exists on the server and that `server.node.js` is in the project root.
+
 
 1. **Best**: Use **Vercel** (1-click deploy from GitHub)
 2. **Second best**: Use **Netlify** (also 1-click, free tier available)
