@@ -9,7 +9,7 @@
     "build:spa": "npm run build && node scripts/export-static.cjs",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
-    "start": "node server.node.js",
+    "start": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write ."
   },
