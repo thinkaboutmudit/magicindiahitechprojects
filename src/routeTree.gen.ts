@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TrustRouteImport } from './routes/trust'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as LegalRouteImport } from './routes/legal'
 import { Route as GalleryRouteImport } from './routes/gallery'
@@ -18,6 +19,11 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
 import { Route as ProjectsSlugRouteImport } from './routes/projects.$slug'
 
+const TrustRoute = TrustRouteImport.update({
+  id: '/trust',
+  path: '/trust',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProjectsRoute = ProjectsRouteImport.update({
   id: '/projects',
   path: '/projects',
@@ -66,6 +72,7 @@ export interface FileRoutesByFullPath {
   '/gallery': typeof GalleryRoute
   '/legal': typeof LegalRoute
   '/projects': typeof ProjectsRouteWithChildren
+  '/trust': typeof TrustRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/projects/': typeof ProjectsIndexRoute
 }
@@ -75,6 +82,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/legal': typeof LegalRoute
+  '/trust': typeof TrustRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/projects': typeof ProjectsIndexRoute
 }
@@ -86,6 +94,7 @@ export interface FileRoutesById {
   '/gallery': typeof GalleryRoute
   '/legal': typeof LegalRoute
   '/projects': typeof ProjectsRouteWithChildren
+  '/trust': typeof TrustRoute
   '/projects/$slug': typeof ProjectsSlugRoute
   '/projects/': typeof ProjectsIndexRoute
 }
@@ -98,6 +107,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/legal'
     | '/projects'
+    | '/trust'
     | '/projects/$slug'
     | '/projects/'
   fileRoutesByTo: FileRoutesByTo
@@ -107,6 +117,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/gallery'
     | '/legal'
+    | '/trust'
     | '/projects/$slug'
     | '/projects'
   id:
@@ -117,6 +128,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/legal'
     | '/projects'
+    | '/trust'
     | '/projects/$slug'
     | '/projects/'
   fileRoutesById: FileRoutesById
@@ -128,10 +140,18 @@ export interface RootRouteChildren {
   GalleryRoute: typeof GalleryRoute
   LegalRoute: typeof LegalRoute
   ProjectsRoute: typeof ProjectsRouteWithChildren
+  TrustRoute: typeof TrustRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/trust': {
+      id: '/trust'
+      path: '/trust'
+      fullPath: '/trust'
+      preLoaderRoute: typeof TrustRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/projects': {
       id: '/projects'
       path: '/projects'
@@ -212,6 +232,7 @@ const rootRouteChildren: RootRouteChildren = {
   GalleryRoute: GalleryRoute,
   LegalRoute: LegalRoute,
   ProjectsRoute: ProjectsRouteWithChildren,
+  TrustRoute: TrustRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
