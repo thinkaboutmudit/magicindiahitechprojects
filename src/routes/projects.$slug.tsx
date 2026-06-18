@@ -118,7 +118,7 @@ function ProjectDetail() {
             <p className="mt-3 text-muted-foreground">Click any image to view it larger with next/prev controls.</p>
             <div className="mt-8 overflow-x-auto pb-4">
             <div className="grid auto-cols-[minmax(280px,1fr)] grid-flow-col gap-4">
-              {gallery.map((src, index) => (
+              {gallery.map((src: string, index: number) => (
                 <button key={index} type="button" onClick={() => openImage(index)} className="group min-w-[280px] overflow-hidden rounded-3xl border border-border bg-background p-0 shadow-[var(--shadow-soft)] transition hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-primary">
                   <img src={src} alt={`${project.name} gallery ${index + 1}`} className="h-60 w-full object-cover transition duration-300 group-hover:scale-105" />
                 </button>
